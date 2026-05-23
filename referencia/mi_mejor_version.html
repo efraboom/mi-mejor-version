@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Mejor Versión – Guía Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:    #F7F1EB;
+  --cream2:   #EFE7DD;
+  --blush:    #D4A8A0;
+  --blush2:   #C4908A;
+  --rose:     #B5706A;
+  --sage:     #8FA68C;
+  --sage2:    #6D8A6A;
+  --gold:     #C9A96E;
+  --gold2:    #B8903A;
+  --brown:    #5C4033;
+  --text:     #3A2E28;
+  --muted:    #7A6A62;
+  --light:    #F0E8E0;
+  --white:    #FDFAF7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--text);font-size:14px;line-height:1.7}
+a{text-decoration:none;color:inherit}
+
+/* ─── COVER ─── */
+.cover{
+  min-height:100vh;background:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 40px;text-align:center;position:relative;overflow:hidden;
+  border-bottom:1.5px solid var(--cream2);
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(143,166,140,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 80% 20%, rgba(201,169,110,.15) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(212,168,160,.10) 0%, transparent 60%);
+  pointer-events:none;
+}
+.cover-border{
+  position:absolute;inset:20px;
+  border:0.8px solid rgba(201,169,110,.4);pointer-events:none;border-radius:2px;
+}
+.cover-border::before,.cover-border::after{
+  content:'✦';position:absolute;color:var(--gold);font-size:10px;opacity:.7;
+}
+.cover-border::before{top:-8px;left:50%;transform:translateX(-50%)}
+.cover-border::after{bottom:-8px;left:50%;transform:translateX(-50%)}
+
+.lotus{font-size:32px;color:var(--gold);margin-bottom:8px;letter-spacing:8px;opacity:.8}
+.subtitle-tag{
+  font-family:'Lato',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;font-weight:300;
+}
+.cover h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,88px);
+  font-weight:600;line-height:1;color:var(--brown);letter-spacing:-1px;margin-bottom:0;
+}
+.cover .script{
+  font-family:'Dancing Script',cursive;font-size:clamp(44px,7vw,72px);
+  color:var(--blush2);display:block;margin-bottom:4px;font-weight:700;
+}
+.heart-divider{color:var(--blush);font-size:14px;margin:16px 0;letter-spacing:6px;opacity:.7}
+.cover-desc{
+  font-size:14px;color:var(--muted);max-width:400px;line-height:1.8;margin-bottom:28px;
+  font-weight:300;
+}
+.cover-desc strong{color:var(--rose);font-weight:700}
+.icon-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.icon-circle{
+  width:72px;height:72px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:22px;gap:2px;border:0.8px solid rgba(201,169,110,.3);
+}
+.icon-circle span{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.ic-1{background:rgba(212,168,160,.15)}
+.ic-2{background:rgba(143,166,140,.15)}
+.ic-3{background:rgba(212,168,160,.12)}
+.ic-4{background:rgba(212,168,160,.12)}
+.ic-5{background:rgba(201,169,110,.12)}
+.tagline{
+  font-family:'Dancing Script',cursive;font-size:22px;color:var(--muted);
+  margin-bottom:4px;font-weight:500;
+}
+.tagline2{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:36px}
+.bottom-bar{
+  display:flex;gap:0;background:var(--sage);border-radius:4px;overflow:hidden;
+  width:100%;max-width:520px;
+}
+.bb-item{
+  flex:1;padding:14px 8px;text-align:center;
+  border-right:0.8px solid rgba(255,255,255,.15);
+  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.9);cursor:pointer;transition:background .2s;
+}
+.bb-item:last-child{border-right:none}
+.bb-item:hover{background:var(--sage2)}
+.bb-item .bb-icon{font-size:16px;display:block;margin-bottom:3px}
+.footer-tag{margin-top:24px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);opacity:.6}
+.footer-tag span{margin:0 8px;color:var(--gold)}
+
+/* ─── NAVIGATION ─── */
+.sticky-nav{
+  position:sticky;top:0;z-index:100;background:rgba(247,241,235,.96);
+  backdrop-filter:blur(8px);border-bottom:0.8px solid var(--cream2);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:900px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;
+  scrollbar-width:none;padding:10px 0;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{
+  flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;
+  letter-spacing:.5px;cursor:pointer;transition:all .2s;white-space:nowrap;
+  border:0.8px solid transparent;background:transparent;color:var(--muted);
+}
+.nav-btn:hover{background:var(--cream2);color:var(--brown)}
+.nav-btn.active{background:var(--rose);color:white;border-color:var(--rose)}
+
+/* ─── SECTIONS ─── */
+.cover{display:flex}
+.section{display:none;max-width:900px;margin:0 auto;padding:40px 24px}
+.section.active{display:block}
+.sticky-nav{display:none}
+.sticky-nav.visible{display:block}
+
+/* ─── SECTION HEADERS ─── */
+.sec-head{margin-bottom:32px;text-align:center}
+.sec-tag{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.sec-head h2{
+  font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;
+  color:var(--brown);line-height:1.2;margin-bottom:8px;
+}
+.sec-head .script{
+  font-family:'Dancing Script',cursive;font-size:28px;color:var(--blush2);font-weight:500;
+}
+.sec-head p{font-size:14px;color:var(--muted);max-width:520px;margin:8px auto 0;line-height:1.8}
+.sec-divider{width:60px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto}
+
+/* ─── CARDS ─── */
+.card{
+  background:var(--white);border:0.8px solid rgba(201,169,110,.25);
+  border-radius:12px;padding:24px;margin-bottom:16px;
+}
+.card-rose{border-left:3px solid var(--blush);background:rgba(212,168,160,.06)}
+.card-sage{border-left:3px solid var(--sage);background:rgba(143,166,140,.06)}
+.card-gold{border-left:3px solid var(--gold);background:rgba(201,169,110,.06)}
+
+.card h3{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;
+  color:var(--brown);margin-bottom:8px;
+}
+.card p,.card li{font-size:13px;color:var(--muted);line-height:1.8}
+.card ul{padding-left:16px}
+.card li{margin-bottom:4px}
+
+/* ─── GRIDS ─── */
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:16px}
+
+/* ─── AREA CARDS ─── */
+.area-card{
+  background:var(--white);border:0.8px solid rgba(201,169,110,.2);border-radius:12px;
+  padding:20px;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s;
+}
+.area-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(92,64,51,.08)}
+.area-card .emoji{font-size:28px;margin-bottom:8px;display:block}
+.area-card h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--brown);margin-bottom:4px}
+.area-card p{font-size:12px;color:var(--muted);line-height:1.6}
+.area-badge{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;margin-top:8px;
+}
+.badge-rose{background:rgba(212,168,160,.2);color:var(--rose)}
+.badge-sage{background:rgba(143,166,140,.2);color:var(--sage2)}
+.badge-gold{background:rgba(201,169,110,.2);color:var(--gold2)}
+
+/* ─── HABIT LEVELS ─── */
+.habit-level{margin-bottom:28px}
+.level-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  padding:12px 20px;border-radius:8px;
+}
+.lh-1{background:rgba(143,166,140,.15);border-left:3px solid var(--sage)}
+.lh-2{background:rgba(201,169,110,.12);border-left:3px solid var(--gold)}
+.lh-3{background:rgba(212,168,160,.15);border-left:3px solid var(--blush2)}
+.level-header .lnum{
+  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--brown);
+}
+.level-header div{flex:1}
+.level-header h3{font-size:15px;font-weight:700;color:var(--brown)}
+.level-header p{font-size:12px;color:var(--muted)}
+.habit-item{
+  display:flex;align-items:flex-start;gap:12px;padding:12px 16px;
+  border:0.8px solid var(--cream2);border-radius:8px;margin-bottom:8px;
+  background:var(--white);transition:border-color .2s;
+}
+.habit-item:hover{border-color:var(--blush)}
+.habit-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;
+}
+.hd-sage{background:var(--sage)}
+.hd-gold{background:var(--gold)}
+.hd-rose{background:var(--blush2)}
+.habit-item .hname{font-size:13px;font-weight:700;color:var(--brown);margin-bottom:2px}
+.habit-item .hinfo{font-size:12px;color:var(--muted);line-height:1.6}
+.htag{
+  display:inline-block;font-size:10px;padding:2px 8px;border-radius:12px;
+  background:var(--cream2);color:var(--muted);margin-right:4px;margin-top:4px;
+}
+
+/* ─── ROUTINE BLOCKS ─── */
+.time-block{
+  display:flex;gap:16px;align-items:flex-start;margin-bottom:12px;
+}
+.time-label{
+  flex-shrink:0;width:70px;font-size:11px;font-weight:700;letter-spacing:.5px;
+  color:var(--gold2);text-align:right;padding-top:3px;
+}
+.time-line{
+  flex-shrink:0;width:1px;background:var(--cream2);position:relative;
+}
+.time-line::before{
+  content:'';width:7px;height:7px;border-radius:50%;background:var(--blush);
+  position:absolute;top:4px;left:-3px;
+}
+.time-content{
+  flex:1;background:var(--white);border:0.8px solid rgba(201,169,110,.2);
+  border-radius:8px;padding:12px 16px;
+}
+.time-content .tc-emoji{font-size:16px;margin-right:6px}
+.time-content .tc-title{font-size:13px;font-weight:700;color:var(--brown)}
+.time-content .tc-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
+.day-toggle{display:flex;gap:8px;margin-bottom:24px}
+.dtog{
+  padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;
+  border:0.8px solid var(--cream2);background:var(--white);color:var(--muted);transition:all .2s;
+}
+.dtog.on{background:var(--rose);color:white;border-color:var(--rose)}
+
+/* ─── TRACKER ─── */
+.tracker-grid{display:grid;grid-template-columns:180px repeat(7,1fr);gap:0;margin-bottom:24px;border:0.8px solid var(--cream2);border-radius:12px;overflow:hidden}
+.tg-header{padding:10px 8px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);background:var(--cream);border-bottom:0.8px solid var(--cream2)}
+.tg-header:first-child{text-align:left;padding-left:16px}
+.tg-row{display:contents}
+.tg-row:hover .tg-cell{background:rgba(212,168,160,.05)}
+.tg-habit{padding:11px 16px;font-size:13px;color:var(--brown);border-bottom:0.8px solid var(--cream2);border-right:0.8px solid var(--cream2);background:var(--white)}
+.tg-cell{
+  padding:8px;text-align:center;border-bottom:0.8px solid var(--cream2);border-right:0.8px solid var(--cream2);
+  background:var(--white);cursor:pointer;transition:background .15s;
+}
+.tg-cell:last-child{border-right:none}
+.tg-habit:last-of-type,.tg-cell:last-of-type{border-bottom:none}
+.check-box{
+  width:22px;height:22px;border-radius:6px;border:1.5px solid var(--cream2);
+  display:inline-flex;align-items:center;justify-content:center;font-size:12px;
+  margin:auto;transition:all .15s;cursor:pointer;user-select:none;
+}
+.check-box.done{background:var(--sage);border-color:var(--sage);color:white}
+
+/* ─── EMOTIONAL TRACKER ─── */
+.emotion-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.emot-btn{
+  padding:8px 16px;border-radius:24px;font-size:13px;cursor:pointer;
+  border:1px solid var(--cream2);background:var(--white);transition:all .15s;
+}
+.emot-btn:hover{border-color:var(--blush)}
+.emot-btn.sel{background:var(--blush);color:white;border-color:var(--blush)}
+.journal-box{
+  width:100%;min-height:120px;padding:16px;border-radius:10px;
+  border:0.8px solid var(--cream2);background:var(--white);resize:vertical;
+  font-family:'Lato',sans-serif;font-size:13px;color:var(--text);line-height:1.8;outline:none;
+}
+.journal-box:focus{border-color:var(--blush)}
+.save-btn{
+  display:inline-block;padding:10px 28px;background:var(--rose);color:white;
+  border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;margin-top:12px;
+  border:none;transition:background .2s;
+}
+.save-btn:hover{background:var(--blush2)}
+
+/* ─── AFFIRMATIONS ─── */
+.affirm-card{
+  background:linear-gradient(135deg,rgba(212,168,160,.15),rgba(201,169,110,.1));
+  border:0.8px solid rgba(201,169,110,.3);border-radius:12px;padding:28px;
+  text-align:center;margin-bottom:16px;
+}
+.affirm-card p{
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;
+  color:var(--brown);line-height:1.6;margin-bottom:8px;
+}
+.affirm-card small{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.affirm-nav{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.affirm-nav button{
+  padding:6px 20px;border-radius:20px;font-size:12px;cursor:pointer;
+  border:0.8px solid var(--cream2);background:var(--white);color:var(--muted);transition:all .2s;
+}
+.affirm-nav button:hover{background:var(--blush);color:white;border-color:var(--blush)}
+
+/* ─── REVIEW TABLES ─── */
+.review-q{margin-bottom:20px}
+.review-q label{display:block;font-size:13px;font-weight:700;color:var(--brown);margin-bottom:6px}
+.review-q textarea{
+  width:100%;min-height:80px;padding:12px;border-radius:8px;
+  border:0.8px solid var(--cream2);background:var(--white);resize:vertical;
+  font-family:'Lato',sans-serif;font-size:13px;color:var(--text);line-height:1.7;outline:none;
+}
+.review-q textarea:focus{border-color:var(--blush)}
+.star-row{display:flex;gap:6px;margin-top:4px}
+.star{font-size:22px;cursor:pointer;opacity:.3;transition:opacity .15s}
+.star.lit{opacity:1}
+
+/* ─── WEEKLY SYSTEM ─── */
+.week-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:24px;
+}
+.day-card{
+  background:var(--white);border:0.8px solid var(--cream2);border-radius:10px;
+  padding:12px 8px;text-align:center;
+}
+.day-card .day-name{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.day-card .day-focus{font-size:12px;color:var(--brown);font-weight:700;margin-bottom:6px}
+.day-card .day-icon{font-size:20px}
+.day-card.today{border-color:var(--blush);background:rgba(212,168,160,.08)}
+
+/* ─── PROGRESS ─── */
+.prog-item{margin-bottom:16px}
+.prog-label{display:flex;justify-content:space-between;margin-bottom:6px}
+.prog-label span:first-child{font-size:13px;font-weight:700;color:var(--brown)}
+.prog-label span:last-child{font-size:12px;color:var(--muted)}
+.prog-bar{height:8px;background:var(--cream2);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px;transition:width .8s ease}
+.pf-rose{background:linear-gradient(90deg,var(--blush),var(--rose))}
+.pf-sage{background:linear-gradient(90deg,var(--sage),var(--sage2))}
+.pf-gold{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+
+/* ─── SPIRITUAL ─── */
+.devotion-block{
+  background:rgba(201,169,110,.08);border:0.8px solid rgba(201,169,110,.3);
+  border-radius:12px;padding:24px;margin-bottom:16px;
+}
+.devotion-block h3{
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;
+  color:var(--brown);margin-bottom:12px;
+}
+.verse-box{
+  background:var(--white);border-radius:8px;padding:16px;margin:12px 0;
+  border-left:3px solid var(--gold);
+}
+.verse-box p{font-size:14px;font-style:italic;color:var(--brown);line-height:1.8}
+.verse-box small{font-size:11px;color:var(--gold2);font-weight:700;letter-spacing:1px}
+
+/* ─── PRINT / UTILITY ─── */
+.pill{
+  display:inline-block;font-size:11px;padding:3px 12px;border-radius:20px;
+  background:var(--cream2);color:var(--muted);margin:2px;
+}
+.pill-rose{background:rgba(212,168,160,.2);color:var(--rose)}
+.pill-sage{background:rgba(143,166,140,.2);color:var(--sage2)}
+.pill-gold{background:rgba(201,169,110,.2);color:var(--gold2)}
+.tip-box{
+  background:rgba(143,166,140,.1);border:0.8px solid rgba(143,166,140,.3);
+  border-radius:8px;padding:14px 16px;margin:12px 0;
+}
+.tip-box p{font-size:13px;color:var(--sage2);line-height:1.7}
+.tip-box strong{color:var(--sage2)}
+
+@media print{
+  .sticky-nav{display:none}
+  .section{display:block!important;page-break-after:always}
+}
+@media(max-width:600px){
+  .cover{padding:40px 20px}
+  .cover h1{font-size:44px}.cover .script{font-size:38px}
+  .tracker-grid{grid-template-columns:110px repeat(7,1fr);font-size:11px}
+  .week-grid{grid-template-columns:repeat(4,1fr)}
+  .g2{grid-template-columns:1fr}
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .bottom-bar .bb-item{padding:12px 4px;font-size:8px}
+  .nav-btn{padding:8px 14px;font-size:13px;min-height:40px}
+  .check-box{width:28px;height:28px;font-size:14px}
+  .tg-cell{padding:6px 2px}
+  .emot-btn{padding:10px 14px;font-size:14px;min-height:42px}
+  .dtog{padding:10px 18px;font-size:13px;min-height:42px}
+  .save-btn{min-height:44px;font-size:14px}
+  .time-label{width:56px;font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover" id="sec-cover">
+  <div class="cover-border"></div>
+  <div class="lotus">✦ 🪷 ✦</div>
+  <div class="subtitle-tag">Guía Completa</div>
+  <h1>MI MEJOR<br><span class="script">versión ♡</span></h1>
+  <div class="heart-divider">♡ ✦ ♡</div>
+  <p class="cover-desc">Un sistema práctico y sostenible para transformar tu vida en equilibrio:<br>
+    <strong>espiritual • física • mental • emocional • económica</strong>
+  </p>
+  <div class="icon-row">
+    <div class="icon-circle ic-1">✝️<span>Espiritual</span></div>
+    <div class="icon-circle ic-2">💪<span>Física</span></div>
+    <div class="icon-circle ic-3">🧠<span>Mental</span></div>
+    <div class="icon-circle ic-4">🤍<span>Emocional</span></div>
+    <div class="icon-circle ic-5">💼<span>Profesional</span></div>
+  </div>
+  <div class="tagline">Pequeños hábitos, grandes cambios,</div>
+  <div class="tagline2">✦ una vida con propósito ✦</div>
+  <div class="bottom-bar">
+    <div class="bb-item" onclick="goTo('diagnostico')"><span class="bb-icon">🎯</span>PROPÓSITO</div>
+    <div class="bb-item" onclick="goTo('plan')"><span class="bb-icon">📅</span>PLAN</div>
+    <div class="bb-item" onclick="goTo('habitos')"><span class="bb-icon">✅</span>ACCIÓN</div>
+    <div class="bb-item" onclick="goTo('progreso')"><span class="bb-icon">📈</span>CRECIMIENTO</div>
+    <div class="bb-item" onclick="goTo('emocional')"><span class="bb-icon">🤍</span>BIENESTAR</div>
+  </div>
+  <div class="footer-tag">Tu vida <span>•</span> Tu historia <span>•</span> Tu transformación</div>
+</div>
+
+<!-- ══════════════ STICKY NAV ══════════════ -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <button class="nav-btn" onclick="goTo('cover')">🏠 Inicio</button>
+    <button class="nav-btn" onclick="goTo('diagnostico')">🎯 Diagnóstico</button>
+    <button class="nav-btn" onclick="goTo('areas')">🌸 Mis Áreas</button>
+    <button class="nav-btn" onclick="goTo('habitos')">⭐ Hábitos</button>
+    <button class="nav-btn" onclick="goTo('rutina')">☀️ Rutina</button>
+    <button class="nav-btn" onclick="goTo('tracker')">✅ Tracker</button>
+    <button class="nav-btn" onclick="goTo('semanal')">📅 Semanal</button>
+    <button class="nav-btn" onclick="goTo('emocional')">🤍 Bienestar</button>
+    <button class="nav-btn" onclick="goTo('espiritual')">✝️ Espiritual</button>
+    <button class="nav-btn" onclick="goTo('progreso')">📈 Progreso</button>
+  </div>
+</nav>
+
+<!-- ══════════════ 1. DIAGNÓSTICO ══════════════ -->
+<div class="section" id="sec-diagnostico">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 1</div>
+    <h2>Diagnóstico <span class="script">inicial</span></h2>
+    <div class="sec-divider"></div>
+    <p>Antes de cambiar, necesitas verte con honestidad y amor. Responde estas preguntas desde tu corazón.</p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-rose">
+      <h3>🌅 Mi rutina actual</h3>
+      <div class="review-q">
+        <label>¿A qué hora me levanto y me duermo normalmente?</label>
+        <textarea placeholder="Sé honesta contigo misma..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Cómo son mis mañanas hoy?</label>
+        <textarea placeholder="Describe tu mañana típica..."></textarea>
+      </div>
+    </div>
+    <div class="card card-sage">
+      <h3>⚡ Mis niveles de energía</h3>
+      <div class="review-q">
+        <label>¿En qué momentos del día tengo más energía?</label>
+        <textarea placeholder="Mañana, tarde, noche..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Qué me roba energía sin que me dé cuenta?</label>
+        <textarea placeholder="Personas, hábitos, pensamientos..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-gold">
+      <h3>🧱 Mis bloqueos reales</h3>
+      <div class="review-q">
+        <label>¿Qué me ha impedido cambiar antes?</label>
+        <textarea placeholder="Sin juicio, solo observación..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Cuál es mi mayor miedo ante el cambio?</label>
+        <textarea placeholder="Sé vulnerable y honesta..."></textarea>
+      </div>
+    </div>
+    <div class="card card-rose">
+      <h3>💰 Situación económica y profesional</h3>
+      <div class="review-q">
+        <label>¿Cómo está mi situación financiera hoy?</label>
+        <textarea placeholder="Con qué cuento, qué falta..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Qué quiero construir profesionalmente?</label>
+        <textarea placeholder="Tu visión a 1 año..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card card-sage">
+      <h3>🙏 Mi relación con Dios</h3>
+      <div class="review-q">
+        <label>¿Cómo está mi vida espiritual hoy?</label>
+        <textarea placeholder="¿Cercana, distante, en búsqueda?..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Qué quiero fortalecer en mi fe?</label>
+        <textarea placeholder="Lo que anhelas en tu corazón..."></textarea>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <h3>🌟 Mis prioridades</h3>
+      <div class="review-q">
+        <label>¿Qué 3 cosas quiero cambiar primero?</label>
+        <textarea placeholder="Sé específica y realista..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Cómo quiero sentirte en 90 días?</label>
+        <textarea placeholder="Describe esa versión de ti..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <p>💡 <strong>Tip de mentora:</strong> No hay respuestas correctas o incorrectas. Este diagnóstico es tu punto de partida, no tu definición. Eres más que donde estás hoy.</p>
+  </div>
+</div>
+
+<!-- ══════════════ 2. ÁREAS ══════════════ -->
+<div class="section" id="sec-areas">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 2</div>
+    <h2>Sistema por <span class="script">áreas de vida</span></h2>
+    <div class="sec-divider"></div>
+    <p>Cada área tiene su propio ritmo. No tienes que trabajarlas todas al mismo tiempo — empieza donde más urge.</p>
+  </div>
+
+  <div class="g3">
+    <div class="area-card">
+      <span class="emoji">✝️</span>
+      <h4>Espiritual</h4>
+      <p>Devoción, fe, propósito profundo</p>
+      <span class="area-badge badge-gold">Alta prioridad</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">💪</span>
+      <h4>Física</h4>
+      <p>Cuerpo, movimiento, vitalidad</p>
+      <span class="area-badge badge-rose">Esencial</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">🧠</span>
+      <h4>Mental</h4>
+      <p>Claridad, aprendizaje, enfoque</p>
+      <span class="area-badge badge-sage">Sostenible</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">🤍</span>
+      <h4>Emocional</h4>
+      <p>Paz, regulación, autoestima</p>
+      <span class="area-badge badge-rose">Prioridad</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">💼</span>
+      <h4>Profesional</h4>
+      <p>Carrera, proyectos, propósito</p>
+      <span class="area-badge badge-gold">Crecer</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">💸</span>
+      <h4>Financiera</h4>
+      <p>Estabilidad, ahorro, ingresos</p>
+      <span class="area-badge badge-gold">Construir</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">✨</span>
+      <h4>Imagen personal</h4>
+      <p>Autocuidado, estilo, presencia</p>
+      <span class="area-badge badge-rose">Cultivar</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">🌿</span>
+      <h4>Relaciones</h4>
+      <p>Vínculos, límites, amor propio</p>
+      <span class="area-badge badge-sage">Nutrir</span>
+    </div>
+    <div class="area-card">
+      <span class="emoji">🎯</span>
+      <h4>Productividad</h4>
+      <p>Organización, metas, acción</p>
+      <span class="area-badge badge-sage">Sistema</span>
+    </div>
+  </div>
+
+  <!-- Tabla de metas por área -->
+  <div class="card" style="overflow-x:auto">
+    <h3>📊 Mapa de objetivos por área</h3>
+    <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:12px">
+      <thead>
+        <tr style="background:var(--cream2)">
+          <th style="padding:10px 12px;text-align:left;color:var(--brown);font-weight:700">Área</th>
+          <th style="padding:10px 12px;text-align:left;color:var(--brown);font-weight:700">Hábito mínimo</th>
+          <th style="padding:10px 12px;text-align:left;color:var(--brown);font-weight:700">Meta semanal</th>
+          <th style="padding:10px 12px;text-align:left;color:var(--brown);font-weight:700">Meta mensual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:0.5px solid var(--cream2)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">✝️ Espiritual</td>
+          <td style="padding:10px 12px;color:var(--muted)">5 min de oración</td>
+          <td style="padding:10px 12px;color:var(--muted)">3 devocionales</td>
+          <td style="padding:10px 12px;color:var(--muted)">Terminar un libro bíblico</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream2);background:rgba(255,255,255,.5)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">💪 Física</td>
+          <td style="padding:10px 12px;color:var(--muted)">10 min de movimiento</td>
+          <td style="padding:10px 12px;color:var(--muted)">3 sesiones de ejercicio</td>
+          <td style="padding:10px 12px;color:var(--muted)">Consolidar rutina de movimiento</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream2)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">🧠 Mental</td>
+          <td style="padding:10px 12px;color:var(--muted)">10 páginas de lectura</td>
+          <td style="padding:10px 12px;color:var(--muted)">1 tema nuevo aprendido</td>
+          <td style="padding:10px 12px;color:var(--muted)">1 libro leído</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream2);background:rgba(255,255,255,.5)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">🤍 Emocional</td>
+          <td style="padding:10px 12px;color:var(--muted)">Journaling 5 min</td>
+          <td style="padding:10px 12px;color:var(--muted)">Revisar emociones 3x</td>
+          <td style="padding:10px 12px;color:var(--muted)">Patrón emocional identificado</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream2)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">💼 Profesional</td>
+          <td style="padding:10px 12px;color:var(--muted)">1 tarea de carrera/día</td>
+          <td style="padding:10px 12px;color:var(--muted)">Avanzar en 1 proyecto</td>
+          <td style="padding:10px 12px;color:var(--muted)">Alcanzar 1 meta profesional</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream2);background:rgba(255,255,255,.5)">
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">💸 Financiera</td>
+          <td style="padding:10px 12px;color:var(--muted)">Registrar gastos</td>
+          <td style="padding:10px 12px;color:var(--muted)">Revisar presupuesto</td>
+          <td style="padding:10px 12px;color:var(--muted)">Ahorrar meta del mes</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;color:var(--brown);font-weight:700">✨ Imagen</td>
+          <td style="padding:10px 12px;color:var(--muted)">Rutina de skincare</td>
+          <td style="padding:10px 12px;color:var(--muted)">Cuidar aspecto 5/7 días</td>
+          <td style="padding:10px 12px;color:var(--muted)">Crear estilo personal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════ 3. HÁBITOS ══════════════ -->
+<div class="section" id="sec-habitos">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 3</div>
+    <h2>Plan de <span class="script">hábitos progresivos</span></h2>
+    <div class="sec-divider"></div>
+    <p>No cambias de golpe. Construyes poco a poco. Cada nivel se consolida antes de pasar al siguiente.</p>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div class="habit-level">
+    <div class="level-header lh-1">
+      <div class="lnum">01</div>
+      <div>
+        <h3>Nivel 1 — Hábitos semilla 🌱</h3>
+        <p>Menos de 5 minutos. Sin excusas. Solo hacerlo.</p>
+      </div>
+      <span class="pill pill-sage">Semanas 1–3</span>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-sage"></div>
+      <div>
+        <div class="hname">Tomar 1 vaso de agua al despertar</div>
+        <div class="hinfo">⏰ 6:00–7:00 am &nbsp;|&nbsp; ⏱ 30 segundos &nbsp;|&nbsp; 🏆 Recompensa: ✓ en tu tracker</div>
+        <span class="htag">Salud</span><span class="htag">Hidratación</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-sage"></div>
+      <div>
+        <div class="hname">Oración de gratitud de 3 minutos</div>
+        <div class="hinfo">⏰ Al despertar &nbsp;|&nbsp; ⏱ 3 min &nbsp;|&nbsp; 🏆 Recompensa: sentir paz inmediata</div>
+        <span class="htag">Espiritual</span><span class="htag">Mañana</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-sage"></div>
+      <div>
+        <div class="hname">Tender la cama al levantarse</div>
+        <div class="hinfo">⏰ Al despertar &nbsp;|&nbsp; ⏱ 2 min &nbsp;|&nbsp; 🏆 Recompensa: primera victoria del día</div>
+        <span class="htag">Productividad</span><span class="htag">Orden</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-sage"></div>
+      <div>
+        <div class="hname">Escribir 1 intención del día</div>
+        <div class="hinfo">⏰ Mañana &nbsp;|&nbsp; ⏱ 2 min &nbsp;|&nbsp; 🏆 Recompensa: claridad mental</div>
+        <span class="htag">Emocional</span><span class="htag">Claridad</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-sage"></div>
+      <div>
+        <div class="hname">Apagar el celular 30 min antes de dormir</div>
+        <div class="hinfo">⏰ Noche &nbsp;|&nbsp; ⏱ 0 esfuerzo &nbsp;|&nbsp; 🏆 Recompensa: mejor sueño</div>
+        <span class="htag">Descanso</span><span class="htag">Mental</span>
+      </div>
+    </div>
+    <div class="tip-box">
+      <p>🛡️ <strong>Anti-abandono:</strong> Si fallas un día, al día siguiente simplemente empiezas de nuevo. No rompas la cadena, pero si se rompe — la reconstruyes. Una recaída no es fracaso.</p>
+    </div>
+  </div>
+
+  <!-- NIVEL 2 -->
+  <div class="habit-level">
+    <div class="level-header lh-2">
+      <div class="lnum">02</div>
+      <div>
+        <h3>Nivel 2 — Hábitos raíz 🌿</h3>
+        <p>10–20 minutos. Ya tienes base. Ahora profundizas.</p>
+      </div>
+      <span class="pill pill-gold">Semanas 4–8</span>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-gold"></div>
+      <div>
+        <div class="hname">Devocional con Biblia — 10 min</div>
+        <div class="hinfo">⏰ 6:30 am &nbsp;|&nbsp; ⏱ 10 min &nbsp;|&nbsp; 🏆 Recompensa: semana sin saltarlo = tiempo especial contigo</div>
+        <span class="htag">Espiritual</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-gold"></div>
+      <div>
+        <div class="hname">Caminata o movimiento de 20 min</div>
+        <div class="hinfo">⏰ Mañana o tarde &nbsp;|&nbsp; ⏱ 20 min &nbsp;|&nbsp; 🏆 Recompensa: 5 seguidos = item de bienestar</div>
+        <span class="htag">Física</span><span class="htag">Energía</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-gold"></div>
+      <div>
+        <div class="hname">Journaling emocional — 5–10 min</div>
+        <div class="hinfo">⏰ Noche &nbsp;|&nbsp; ⏱ 10 min &nbsp;|&nbsp; 🏆 Recompensa: conocerte profundamente</div>
+        <span class="htag">Emocional</span><span class="htag">Salud mental</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-gold"></div>
+      <div>
+        <div class="hname">Leer 10–15 páginas antes de dormir</div>
+        <div class="hinfo">⏰ Noche &nbsp;|&nbsp; ⏱ 15 min &nbsp;|&nbsp; 🏆 Recompensa: mente más aguda, menos ansiedad</div>
+        <span class="htag">Mental</span><span class="htag">Lectura</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-gold"></div>
+      <div>
+        <div class="hname">Registrar gastos del día</div>
+        <div class="hinfo">⏰ Noche &nbsp;|&nbsp; ⏱ 5 min &nbsp;|&nbsp; 🏆 Recompensa: control real de tu dinero</div>
+        <span class="htag">Financiero</span><span class="htag">Consciencia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIVEL 3 -->
+  <div class="habit-level">
+    <div class="level-header lh-3">
+      <div class="lnum">03</div>
+      <div>
+        <h3>Nivel 3 — Hábitos árbol 🌳</h3>
+        <p>30+ minutos. Tu nueva identidad consolidada.</p>
+      </div>
+      <span class="pill pill-rose">Semanas 9–12+</span>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-rose"></div>
+      <div>
+        <div class="hname">Rutina de ejercicio estructurada — 30–45 min</div>
+        <div class="hinfo">⏰ Mañana &nbsp;|&nbsp; ⏱ 45 min &nbsp;|&nbsp; 🏆 Recompensa: energía, cuerpo y mente transformados</div>
+        <span class="htag">Física</span><span class="htag">Disciplina</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-rose"></div>
+      <div>
+        <div class="hname">Bloque de trabajo profundo — 90 min</div>
+        <div class="hinfo">⏰ Pico de energía &nbsp;|&nbsp; ⏱ 90 min &nbsp;|&nbsp; 🏆 Recompensa: proyectos reales avanzando</div>
+        <span class="htag">Profesional</span><span class="htag">Foco</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-rose"></div>
+      <div>
+        <div class="hname">Preparación de comidas saludables semanal</div>
+        <div class="hinfo">⏰ Domingo &nbsp;|&nbsp; ⏱ 60–90 min &nbsp;|&nbsp; 🏆 Recompensa: semana con más energía y dinero ahorrado</div>
+        <span class="htag">Salud</span><span class="htag">Nutrición</span>
+      </div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-dot hd-rose"></div>
+      <div>
+        <div class="hname">Revisión semanal completa</div>
+        <div class="hinfo">⏰ Domingo noche &nbsp;|&nbsp; ⏱ 30–45 min &nbsp;|&nbsp; 🏆 Recompensa: vida diseñada con intención</div>
+        <span class="htag">Productividad</span><span class="htag">Reflexión</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 4. RUTINA ══════════════ -->
+<div class="section" id="sec-rutina">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 4</div>
+    <h2>Rutina diaria <span class="script">equilibrada</span></h2>
+    <div class="sec-divider"></div>
+    <p>Diseñada para días buenos y días difíciles. Siempre hay una versión para ti.</p>
+  </div>
+
+  <div class="day-toggle">
+    <button class="dtog on" onclick="showDay('bueno',this)">☀️ Día bueno</button>
+    <button class="dtog" onclick="showDay('dificil',this)">🌧️ Día difícil</button>
+  </div>
+
+  <!-- DÍA BUENO -->
+  <div id="dia-bueno">
+    <div class="card" style="margin-bottom:20px">
+      <h3>🌅 Rutina de mañana</h3>
+      <div style="margin-top:16px">
+        <div class="time-block">
+          <div class="time-label">6:00 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🙏</span><span class="tc-title">Oración y gratitud</span><div class="tc-desc">3 cosas por las que agradecer. Entregar el día a Dios.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">6:10 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">💧</span><span class="tc-title">Agua + limón</span><div class="tc-desc">Activar el metabolismo. Tender la cama.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">6:20 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">📖</span><span class="tc-title">Devocional — 10 min</span><div class="tc-desc">Biblia, reflexión, escuchar a Dios.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">6:35 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">💪</span><span class="tc-title">Movimiento / Ejercicio — 30 min</span><div class="tc-desc">Caminata, yoga, entreno. Lo que el cuerpo pida.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">7:10 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🚿</span><span class="tc-title">Ducha + skincare + arreglo personal</span><div class="tc-desc">Verte bien para sentirte bien. Autocuidado con intención.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">7:40 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🥣</span><span class="tc-title">Desayuno nutritivo sin pantallas</span><div class="tc-desc">Come presente. Sin celular. Solo tú y tu desayuno.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">8:00 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">📝</span><span class="tc-title">Planificación del día — 5 min</span><div class="tc-desc">Mis 3 tareas más importantes. Mi intención de hoy.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:20px">
+      <h3>🌞 Bloques de productividad</h3>
+      <div style="margin-top:16px">
+        <div class="time-block">
+          <div class="time-label">8:15 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🎯</span><span class="tc-title">Bloque profundo 1 — 90 min</span><div class="tc-desc">Tarea más importante. Sin distracciones. Modo avión.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">9:45 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">☕</span><span class="tc-title">Descanso activo — 15 min</span><div class="tc-desc">Caminar, estirar, respirar. No redes sociales.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">10:00 am</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">💼</span><span class="tc-title">Bloque profundo 2 — 60–90 min</span><div class="tc-desc">Proyectos, estudio, trabajo creativo.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">12:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🥗</span><span class="tc-title">Almuerzo + descanso real — 60 min</span><div class="tc-desc">Come con calma. Sal si puedes. Recarga energía.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">1:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">📊</span><span class="tc-title">Tareas secundarias / emails / admin — 90 min</span><div class="tc-desc">Lo que no requiere máxima concentración.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🌙 Rutina de noche</h3>
+      <div style="margin-top:16px">
+        <div class="time-block">
+          <div class="time-label">6:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🏁</span><span class="tc-title">Cierre de trabajo — 5 min</span><div class="tc-desc">Anotar pendientes para mañana. Desconectar conscientemente.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">7:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">💸</span><span class="tc-title">Registro de gastos — 5 min</span><div class="tc-desc">¿Cuánto gasté hoy? ¿En qué? Sin juicio, solo conciencia.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">8:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">✍️</span><span class="tc-title">Journaling — 10 min</span><div class="tc-desc">¿Cómo me sentí hoy? ¿Qué aprendí? ¿Qué agradezco?</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">8:15 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">📚</span><span class="tc-title">Lectura — 20 min</span><div class="tc-desc">Sin pantallas. Tu mente descansando en buenas palabras.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">9:00 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🙏</span><span class="tc-title">Oración de cierre</span><div class="tc-desc">Entregar el día. Perdonar. Confiar. Descansar en Dios.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">9:30 pm</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">😴</span><span class="tc-title">Dormir — objetivo 7–8 h</span><div class="tc-desc">El sueño es sagrado. Celébralo, no lo sacrifiques.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA DIFÍCIL -->
+  <div id="dia-dificil" style="display:none">
+    <div class="tip-box" style="margin-bottom:20px">
+      <p>🤍 <strong>En días difíciles la meta no es ser perfecta — es ser compasiva contigo.</strong> Esta rutina mínima te mantiene anclada sin agotarte.</p>
+    </div>
+    <div class="card">
+      <h3>💛 Rutina mínima para días difíciles</h3>
+      <div style="margin-top:16px">
+        <div class="time-block">
+          <div class="time-label">Mañana</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🙏</span><span class="tc-title">Solo 3 minutos con Dios</span><div class="tc-desc">"Señor, hoy estoy cansada. Acompáñame." Eso es suficiente.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">Mañana</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">💧</span><span class="tc-title">Agua y 1 alimento nutritivo</span><div class="tc-desc">Tu cuerpo necesita apoyo, no castigo.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">Durante el día</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🎯</span><span class="tc-title">Solo 1 tarea importante</span><div class="tc-desc">No la lista completa. Solo una. La que más importa hoy.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">Tarde</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">🚶</span><span class="tc-title">10 minutos de aire fresco</span><div class="tc-desc">Sal aunque sea al balcón. Respira. Recuerda que eres humana.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">Noche</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">✍️</span><span class="tc-title">Escribe solo: "Hoy me sentí ___"</span><div class="tc-desc">No necesitas resolver nada. Solo nombrar lo que sientes.</div></div>
+        </div>
+        <div class="time-block">
+          <div class="time-label">Noche</div>
+          <div class="time-line"></div>
+          <div class="time-content"><span class="tc-emoji">😴</span><span class="tc-title">Dormir temprano sin culpa</span><div class="tc-desc">El descanso es productividad. Mañana empieza de nuevo.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="affirm-card" style="margin-top:16px">
+      <p>"Caí, pero no me quedé en el suelo. Eso ya es valentía."</p>
+      <small>✦ Para días difíciles ✦</small>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 5. TRACKER ══════════════ -->
+<div class="section" id="sec-tracker">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 5</div>
+    <h2>Tracker de <span class="script">hábitos</span></h2>
+    <div class="sec-divider"></div>
+    <p>Marca cada hábito completado. Ver tu progreso es la mejor motivación.</p>
+  </div>
+
+  <div class="card" style="overflow-x:auto;padding:0">
+    <div class="tracker-grid" id="tracker-grid">
+      <div class="tg-header">Hábito</div>
+      <div class="tg-header">L</div>
+      <div class="tg-header">M</div>
+      <div class="tg-header">X</div>
+      <div class="tg-header">J</div>
+      <div class="tg-header">V</div>
+      <div class="tg-header">S</div>
+      <div class="tg-header">D</div>
+    </div>
+    <div style="padding:16px">
+      <button class="save-btn" style="font-size:12px;padding:8px 20px" onclick="resetTracker()">↺ Reiniciar semana</button>
+      <span style="font-size:12px;color:var(--muted);margin-left:12px" id="tracker-count">0 / 0 completados</span>
+    </div>
+  </div>
+
+  <!-- Checklist diaria -->
+  <div class="card card-rose" style="margin-top:20px">
+    <h3>✅ Checklist diaria</h3>
+    <div id="daily-checklist" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<!-- ══════════════ 6. SEMANAL ══════════════ -->
+<div class="section" id="sec-semanal">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 6</div>
+    <h2>Sistema <span class="script">semanal</span></h2>
+    <div class="sec-divider"></div>
+    <p>Cada semana tiene un enfoque. Esto evita que todo sea urgente y nada sea prioritario.</p>
+  </div>
+
+  <div class="week-grid">
+    <div class="day-card today">
+      <div class="day-name">Lunes</div>
+      <div class="day-icon">🎯</div>
+      <div class="day-focus">Inicio y plan</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Martes</div>
+      <div class="day-icon">💼</div>
+      <div class="day-focus">Trabajo profundo</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Miércoles</div>
+      <div class="day-icon">🌿</div>
+      <div class="day-focus">Bienestar y cuerpo</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Jueves</div>
+      <div class="day-icon">💸</div>
+      <div class="day-focus">Finanzas y proyectos</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Viernes</div>
+      <div class="day-icon">🎨</div>
+      <div class="day-focus">Creatividad y cierre</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Sábado</div>
+      <div class="day-icon">💆</div>
+      <div class="day-focus">Descanso activo</div>
+    </div>
+    <div class="day-card">
+      <div class="day-name">Domingo</div>
+      <div class="day-icon">🙏</div>
+      <div class="day-focus">Reflexión y Dios</div>
+    </div>
+  </div>
+
+  <!-- Revisión semanal -->
+  <div class="card">
+    <h3>📝 Revisión semanal — cada domingo</h3>
+    <div style="margin-top:16px">
+      <div class="review-q">
+        <label>¿Qué celebro de esta semana?</label>
+        <textarea placeholder="Escribe 3 victorias, aunque sean pequeñas..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Qué hábitos cumplí / cuántos días?</label>
+        <textarea placeholder="Revisa tu tracker y cuenta..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>¿Qué necesito ajustar la próxima semana?</label>
+        <textarea placeholder="Sin perfeccionismo, solo ajuste..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>Mi intención de la próxima semana:</label>
+        <textarea placeholder="Una frase que te inspire y te ancle..."></textarea>
+      </div>
+    </div>
+    <button class="save-btn">Guardar reflexión ♡</button>
+  </div>
+
+  <!-- Revisión mensual -->
+  <div class="card card-gold" style="margin-top:16px">
+    <h3>🌙 Revisión mensual — 1er domingo del mes</h3>
+    <div style="margin-top:12px">
+      <div class="review-q">
+        <label>⭐ ¿Qué logré este mes?</label>
+        <textarea placeholder="Sé generosa contigo al reconocer tus avances..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>📈 ¿En qué área crecí más?</label>
+        <textarea placeholder="Espiritual, física, emocional, profesional, financiera..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>🎯 ¿Cuáles son mis 3 metas del próximo mes?</label>
+        <textarea placeholder="Específicas, medibles, realistas..."></textarea>
+      </div>
+      <div class="review-q">
+        <label>🙏 ¿Qué me dijo Dios este mes?</label>
+        <textarea placeholder="Una enseñanza, un versículo, una paz..."></textarea>
+      </div>
+    </div>
+    <button class="save-btn">Guardar revisión mensual ♡</button>
+  </div>
+</div>
+
+<!-- ══════════════ 7. BIENESTAR EMOCIONAL ══════════════ -->
+<div class="section" id="sec-emocional">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 7</div>
+    <h2>Bienestar <span class="script">emocional y mental</span></h2>
+    <div class="sec-divider"></div>
+    <p>Tus emociones no son tus enemigas. Son mensajeras. Aprender a escucharlas es poder.</p>
+  </div>
+
+  <!-- Termómetro emocional -->
+  <div class="card card-rose">
+    <h3>🌡️ ¿Cómo estoy hoy?</h3>
+    <p style="font-size:13px;color:var(--muted);margin:8px 0 12px">Toca cómo te sientes en este momento:</p>
+    <div class="emotion-row" id="emot-row">
+      <button class="emot-btn" onclick="selEmotion(this)">😴 Agotada</button>
+      <button class="emot-btn" onclick="selEmotion(this)">😰 Ansiosa</button>
+      <button class="emot-btn" onclick="selEmotion(this)">😔 Triste</button>
+      <button class="emot-btn" onclick="selEmotion(this)">😤 Frustrada</button>
+      <button class="emot-btn" onclick="selEmotion(this)">😊 Bien</button>
+      <button class="emot-btn" onclick="selEmotion(this)">✨ Muy bien</button>
+      <button class="emot-btn" onclick="selEmotion(this)">🔥 Motivada</button>
+      <button class="emot-btn" onclick="selEmotion(this)">🙏 Agradecida</button>
+    </div>
+    <div id="emot-advice" style="display:none;margin-top:12px" class="tip-box"></div>
+  </div>
+
+  <!-- Journaling -->
+  <div class="card card-sage" style="margin-top:16px">
+    <h3>✍️ Journaling guiado</h3>
+    <div style="margin-top:12px">
+      <div id="journal-prompt" style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--brown);margin-bottom:12px;padding:12px;background:var(--cream);border-radius:8px;border-left:3px solid var(--blush)"></div>
+      <textarea class="journal-box" placeholder="Escribe sin filtro. Nadie te juzga aquí..."></textarea>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="save-btn" onclick="newPrompt()">Nueva pregunta ↺</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Afirmaciones -->
+  <div style="margin-top:20px">
+    <div class="sec-tag" style="display:block;text-align:center;margin-bottom:12px">Afirmaciones diarias</div>
+    <div class="affirm-card" id="affirm-display">
+      <p id="affirm-text"></p>
+      <small>✦ Lee en voz alta cada mañana ✦</small>
+    </div>
+    <div class="affirm-nav">
+      <button onclick="prevAffirm()">← Anterior</button>
+      <button onclick="nextAffirm()">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- Regulación emocional -->
+  <div class="card" style="margin-top:20px">
+    <h3>🧘 Herramientas de regulación emocional</h3>
+    <div class="g2" style="margin-top:12px">
+      <div style="padding:16px;background:var(--cream);border-radius:8px">
+        <div style="font-weight:700;color:var(--brown);margin-bottom:6px">🌬️ Respiración 4-7-8</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">Inhala 4 seg → Sostén 7 seg → Exhala 8 seg. Repite 3–4 veces. Activa el sistema nervioso parasimpático al instante.</div>
+      </div>
+      <div style="padding:16px;background:var(--cream);border-radius:8px">
+        <div style="font-weight:700;color:var(--brown);margin-bottom:6px">🧊 Técnica 5-4-3-2-1</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">5 cosas que ves, 4 que tocas, 3 que escuchas, 2 que hueles, 1 que saboreas. Ancla al presente en segundos.</div>
+      </div>
+      <div style="padding:16px;background:var(--cream);border-radius:8px">
+        <div style="font-weight:700;color:var(--brown);margin-bottom:6px">💔 Después de fallar</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">1) Reconoce lo que pasó sin drama. 2) Pregunta: ¿qué aprendí? 3) Decide 1 acción pequeña para mañana. 4) Suéltalo con oración.</div>
+      </div>
+      <div style="padding:16px;background:var(--cream);border-radius:8px">
+        <div style="font-weight:700;color:var(--brown);margin-bottom:6px">😔 Para la desmotivación</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">No esperes motivación — actúa primero, la motivación llega después. Haz solo 2 minutos de la tarea. El movimiento genera la chispa.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 8. ESPIRITUAL ══════════════ -->
+<div class="section" id="sec-espiritual">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 9</div>
+    <h2>Vida <span class="script">espiritual</span></h2>
+    <div class="sec-divider"></div>
+    <p>Tu relación con Dios no se construye con perfección — se construye con constancia y honestidad.</p>
+  </div>
+
+  <div class="devotion-block">
+    <h3>🕊️ Devocional diario simple — 10–15 min</h3>
+    <div class="verse-box">
+      <p>"Todo lo puedo en Cristo que me fortalece."</p>
+      <small>Filipenses 4:13 ✦</small>
+    </div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.8">
+      Estructura simple para tu tiempo con Dios:<br>
+      <strong>1.</strong> Ora primero (3 min) — Agradecer antes de pedir.<br>
+      <strong>2.</strong> Lee (5–7 min) — Un capítulo o porción del día.<br>
+      <strong>3.</strong> Reflexiona (3 min) — ¿Qué me habla Dios aquí?<br>
+      <strong>4.</strong> Aplica (1 min) — ¿Cómo lo vivo hoy?
+    </p>
+  </div>
+
+  <div class="g2">
+    <div class="card card-gold">
+      <h3>🙏 Hábitos espirituales sostenibles</h3>
+      <ul style="margin-top:10px">
+        <li>Oración al despertar — aunque sea 3 minutos</li>
+        <li>Devocional diario con Biblia</li>
+        <li>Gratitud escrita antes de dormir (3 cosas)</li>
+        <li>Escuchar música de adoración durante el día</li>
+        <li>Leer libros de crecimiento espiritual (1/mes)</li>
+        <li>Un día de ayuno al mes (si lo sientes en tu corazón)</li>
+        <li>Comunidad de fe — no caminar sola</li>
+      </ul>
+    </div>
+    <div class="card card-rose">
+      <h3>✨ Gratitud diaria</h3>
+      <p style="margin-bottom:12px">Escribe 3 cosas por las que estás agradecida hoy:</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <input style="padding:10px;border-radius:8px;border:0.8px solid var(--cream2);font-family:'Lato',sans-serif;font-size:13px;color:var(--text);outline:none;background:var(--white)" placeholder="1. Hoy agradezco...">
+        <input style="padding:10px;border-radius:8px;border:0.8px solid var(--cream2);font-family:'Lato',sans-serif;font-size:13px;color:var(--text);outline:none;background:var(--white)" placeholder="2. También agradezco...">
+        <input style="padding:10px;border-radius:8px;border:0.8px solid var(--cream2);font-family:'Lato',sans-serif;font-size:13px;color:var(--text);outline:none;background:var(--white)" placeholder="3. Y sobre todo, agradezco...">
+      </div>
+      <button class="save-btn" style="margin-top:12px">Guardar ♡</button>
+    </div>
+  </div>
+
+  <div class="affirm-card">
+    <p>"Dios mis planes, disciplina mi camino, mi mejor versión."</p>
+    <small>✦ Tu mantra de transformación ✦</small>
+  </div>
+</div>
+
+<!-- ══════════════ 9. PROGRESO ══════════════ -->
+<div class="section" id="sec-progreso">
+  <div class="sec-head">
+    <div class="sec-tag">Paso 10</div>
+    <h2>Mi <span class="script">progreso</span></h2>
+    <div class="sec-divider"></div>
+    <p>El progreso no siempre es visible. Pero siempre es real cuando actúas con intención.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 Indicadores de progreso por área</h3>
+    <div style="margin-top:20px">
+      <div class="prog-item">
+        <div class="prog-label"><span>✝️ Espiritual</span><span id="pv-esp">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-gold" id="pb-esp" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-label"><span>💪 Física</span><span id="pv-fis">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-rose" id="pb-fis" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-label"><span>🧠 Mental</span><span id="pv-men">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-sage" id="pb-men" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-label"><span>🤍 Emocional</span><span id="pv-emo">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-rose" id="pb-emo" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-label"><span>💼 Profesional</span><span id="pv-pro">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-gold" id="pb-pro" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-label"><span>💸 Financiera</span><span id="pv-fin">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill pf-sage" id="pb-fin" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:16px;padding:12px;background:var(--cream);border-radius:8px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:700">Ajusta tu progreso esta semana:</div>
+      <div style="display:flex;flex-direction:column;gap:8px" id="prog-sliders"></div>
+    </div>
+  </div>
+
+  <!-- Sistema de recompensas -->
+  <div class="card card-gold" style="margin-top:16px">
+    <h3>🏆 Sistema de recompensas</h3>
+    <div class="g3" style="margin-top:12px">
+      <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px">
+        <div style="font-size:24px;margin-bottom:6px">🌱</div>
+        <div style="font-size:12px;font-weight:700;color:var(--brown)">3 días seguidos</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Tiempo de autocuidado especial</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px">
+        <div style="font-size:24px;margin-bottom:6px">🌿</div>
+        <div style="font-size:12px;font-weight:700;color:var(--brown)">1 semana completa</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Capricho favorito o paseo</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px">
+        <div style="font-size:24px;margin-bottom:6px">🌳</div>
+        <div style="font-size:12px;font-weight:700;color:var(--brown)">1 mes de constancia</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Experiencia memorable</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px">
+        <div style="font-size:24px;margin-bottom:6px">👑</div>
+        <div style="font-size:12px;font-weight:700;color:var(--brown)">90 días de sistema</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">¡Celebración grande! Mereces todo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="affirm-card" style="margin-top:20px">
+    <p>"No compito con nadie más. Solo con quien fui ayer."</p>
+    <small>✦ Tu única competencia eres tú ✦</small>
+  </div>
+</div>
+
+<div style="height:60px"></div>
+
+<script>
+// ─── NAVIGATION ───
+function goTo(id) {
+  // Hide everything
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+  if (id === 'cover') {
+    // Show cover, hide nav
+    document.querySelector('.cover').style.display = 'flex';
+    document.querySelector('.sticky-nav').classList.remove('visible');
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+
+  // Hide cover, show nav
+  document.querySelector('.cover').style.display = 'none';
+  document.querySelector('.sticky-nav').classList.add('visible');
+
+  const target = document.getElementById('sec-' + id);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+      b.classList.add('active');
+    }
+  });
+}
+
+// ─── DAY TOGGLE ───
+function showDay(type, btn) {
+  document.querySelectorAll('.dtog').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('dia-bueno').style.display = type === 'bueno' ? 'block' : 'none';
+  document.getElementById('dia-dificil').style.display = type === 'dificil' ? 'block' : 'none';
+}
+
+// ─── TRACKER ───
+const HABITS = [
+  '🙏 Oración / Devocional',
+  '💧 Tomar agua (2L)',
+  '💪 Movimiento / Ejercicio',
+  '✍️ Journaling',
+  '📚 Lectura',
+  '💸 Registro de gastos',
+  '😴 Dormir a tiempo',
+  '✨ Skincare / Autocuidado',
+];
+const DAYS = ['L','M','X','J','V','S','D'];
+let trackerState = {};
+
+function buildTracker() {
+  const grid = document.getElementById('tracker-grid');
+  grid.innerHTML = `<div class="tg-header" style="padding-left:16px">Hábito</div>${DAYS.map(d=>`<div class="tg-header">${d}</div>`).join('')}`;
+  HABITS.forEach((h, hi) => {
+    const row = document.createElement('div');
+    row.className = 'tg-row';
+    const cell = document.createElement('div');
+    cell.className = 'tg-habit';
+    cell.textContent = h;
+    cell.style.cssText = 'border-bottom:0.5px solid var(--cream2);border-right:0.5px solid var(--cream2);background:var(--white);padding:11px 16px;font-size:13px;color:var(--brown)';
+    grid.appendChild(cell);
+    DAYS.forEach((d, di) => {
+      const key = `${hi}-${di}`;
+      const tc = document.createElement('div');
+      tc.className = 'tg-cell';
+      const cb = document.createElement('div');
+      cb.className = 'check-box' + (trackerState[key] ? ' done' : '');
+      cb.innerHTML = trackerState[key] ? '✓' : '';
+      cb.onclick = () => {
+        trackerState[key] = !trackerState[key];
+        cb.classList.toggle('done', trackerState[key]);
+        cb.innerHTML = trackerState[key] ? '✓' : '';
+        updateCount();
+      };
+      tc.appendChild(cb);
+      grid.appendChild(tc);
+    });
+  });
+  updateCount();
+}
+
+function updateCount() {
+  const total = HABITS.length * 7;
+  const done = Object.values(trackerState).filter(Boolean).length;
+  document.getElementById('tracker-count').textContent = `${done} / ${total} completados`;
+}
+
+function resetTracker() {
+  if (confirm('¿Reiniciar la semana?')) { trackerState = {}; buildTracker(); }
+}
+
+// Daily checklist
+const DAILY = [
+  {emoji:'💧',text:'Agua al despertar'},
+  {emoji:'🙏',text:'Oración matutina'},
+  {emoji:'🛏️',text:'Tender la cama'},
+  {emoji:'💪',text:'Movimiento del día'},
+  {emoji:'🥗',text:'Comer nutritivo'},
+  {emoji:'📝',text:'Tareas importantes'},
+  {emoji:'✍️',text:'Journaling'},
+  {emoji:'📚',text:'Lectura'},
+  {emoji:'💸',text:'Registrar gastos'},
+  {emoji:'🙏',text:'Oración de cierre'},
+];
+let checkState = {};
+function buildChecklist() {
+  const el = document.getElementById('daily-checklist');
+  el.innerHTML = DAILY.map((item,i) => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid var(--cream2);cursor:pointer" onclick="toggleCheck(${i},this)">
+      <div style="width:20px;height:20px;border-radius:5px;border:1.5px solid var(--cream2);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;${checkState[i]?'background:var(--sage);border-color:var(--sage);color:white':''}">${checkState[i]?'✓':''}</div>
+      <span style="font-size:13px;color:${checkState[i]?'var(--muted)':'var(--brown)'};${checkState[i]?'text-decoration:line-through':''}">${item.emoji} ${item.text}</span>
+    </div>
+  `).join('');
+}
+function toggleCheck(i, row) {
+  checkState[i] = !checkState[i];
+  buildChecklist();
+}
+
+// ─── EMOTIONS ───
+const emotAdvice = {
+  '😴 Agotada': '🤍 Tu cuerpo te pide descanso. Hoy solo la rutina mínima — agua, oración y 1 tarea. Dormir temprano es productividad.',
+  '😰 Ansiosa': '🌬️ Haz la respiración 4-7-8 ahora mismo. Inhala 4 seg, sostén 7, exhala 8. Luego escribe qué específicamente te preocupa.',
+  '😔 Triste': '💙 Está bien sentirte así. No te exijas. Hoy sal 10 minutos al aire, escucha música de adoración y habla con Dios.',
+  '😤 Frustrada': '🔥 Tu frustración es señal de que te importa. Toma 5 minutos, escribe qué te frustró exactamente, y luego toma 1 acción pequeña.',
+  '😊 Bien': '✨ ¡Aprovecha esta energía! Haz tus tareas más importantes ahora y celebra esta versión tuya.',
+  '✨ Muy bien': '🌟 Estás en tu pico. Es el mejor momento para tu trabajo profundo y para ser generosa con tu energía.',
+  '🔥 Motivada': '🚀 ¡Canaliza esto! Escribe lo que quieres lograr en las próximas 3 horas y empieza sin dudar.',
+  '🙏 Agradecida': '💛 Qué regalo estar aquí. Escribe hoy en tu journal desde este lugar — es cuando salen las palabras más poderosas.',
+};
+function selEmotion(btn) {
+  document.querySelectorAll('.emot-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  const adv = document.getElementById('emot-advice');
+  adv.style.display = 'block';
+  adv.innerHTML = `<p>${emotAdvice[btn.textContent] || ''}</p>`;
+}
+
+// ─── JOURNALING ───
+const prompts = [
+  '"¿Qué versión mía quiero honrar hoy?"',
+  '"¿Qué emoción estoy cargando que aún no he nombrado?"',
+  '"¿Qué estoy evitando hacer y por qué?"',
+  '"¿Qué me diría Dios si pudiera hablarme directamente hoy?"',
+  '"¿En qué área me he abandonado últimamente?"',
+  '"¿Qué logros pequeños de esta semana merezco celebrar?"',
+  '"¿Cuál es el miedo que más me paraliza y qué hay detrás de él?"',
+  '"¿Qué necesito soltar para avanzar?"',
+  '"¿Cómo quiero sentirme en 3 meses y qué necesito para llegar ahí?"',
+  '"¿Qué me dice mi cuerpo hoy?"',
+];
+let promptIdx = 0;
+function newPrompt() {
+  promptIdx = (promptIdx + 1) % prompts.length;
+  document.getElementById('journal-prompt').textContent = prompts[promptIdx];
+}
+
+// ─── AFFIRMATIONS ───
+const affirmations = [
+  'Soy disciplinada, constante y capaz de construir la vida que deseo.',
+  'Mi relación con Dios es mi mayor fortaleza y ancla.',
+  'Cuido mi cuerpo con amor porque es el templo de mi espíritu.',
+  'Soy suficiente hoy, y cada día me convierto en más.',
+  'El dinero fluye hacia mí cuando actúo con sabiduría e intención.',
+  'Mis emociones son válidas y tengo las herramientas para manejarlas.',
+  'Soy una mujer equilibrada, plena y en crecimiento continuo.',
+  'No necesito ser perfecta. Solo necesito ser constante.',
+  'Dios tiene planes de bien para mí. Confío en Su guía.',
+  'Cada pequeño hábito que sostengo es una victoria que acumulo.',
+  'Mi mejor versión no es un destino — es quien elijo ser hoy.',
+];
+let affirmIdx = 0;
+function showAffirm() { document.getElementById('affirm-text').textContent = affirmations[affirmIdx]; }
+function nextAffirm() { affirmIdx = (affirmIdx + 1) % affirmations.length; showAffirm(); }
+function prevAffirm() { affirmIdx = (affirmIdx - 1 + affirmations.length) % affirmations.length; showAffirm(); }
+
+// ─── PROGRESS SLIDERS ───
+const AREAS = [
+  {id:'esp',name:'✝️ Espiritual'},
+  {id:'fis',name:'💪 Física'},
+  {id:'men',name:'🧠 Mental'},
+  {id:'emo',name:'🤍 Emocional'},
+  {id:'pro',name:'💼 Profesional'},
+  {id:'fin',name:'💸 Financiera'},
+];
+function buildSliders() {
+  const el = document.getElementById('prog-sliders');
+  el.innerHTML = AREAS.map(a => `
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:12px;color:var(--brown);width:120px;flex-shrink:0">${a.name}</span>
+      <input type="range" min="0" max="100" value="0" style="flex:1" oninput="updateProg('${a.id}',this.value)">
+    </div>
+  `).join('');
+}
+function updateProg(id, val) {
+  document.getElementById('pb-'+id).style.width = val+'%';
+  document.getElementById('pv-'+id).textContent = val+'%';
+}
+
+// ─── INIT ───
+buildTracker();
+buildChecklist();
+document.getElementById('journal-prompt').textContent = prompts[0];
+showAffirm();
+buildSliders();
+</script>
+</body>
+</html>
