@@ -10,9 +10,13 @@ export default async function DashboardPage() {
     .eq('user_id', user!.id)
     .maybeSingle()
 
+  const meta = user?.user_metadata as Record<string, string> | undefined
   const nombre =
     (profile as { nombre?: string | null } | null)?.nombre ||
-    (user?.user_metadata?.nombre as string | undefined) ||
+    meta?.nombre ||
+    meta?.name ||
+    meta?.full_name ||
+    meta?.given_name ||
     'hermosa'
 
   return (
