@@ -25,7 +25,7 @@ export async function proxy(request: NextRequest) {
 
   const { pathname } = request.nextUrl
   const isAuth = pathname.startsWith('/login') || pathname.startsWith('/register')
-  const isPublic = pathname === '/' || isAuth
+  const isPublic = pathname === '/' || isAuth || pathname.startsWith('/auth')
 
   if (!user && !isPublic) {
     return NextResponse.redirect(new URL('/login', request.url))
